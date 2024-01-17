@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% Set up the geometry
+\geometry{letterpaper, margin=1in}
+
+% Title, authors, and date
+\title{Your Paper Title Here}
+\author{Author Name\\
+\small Institution Name\\
+\small \texttt{email@example.com}
+}
+\date{\today}
+
+% Theorems, definitions, etc.
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Your abstract goes here.
+\end{abstract}
+
+\section{Introduction}
+Introduce your topic here.
+
+\section{Background}
+Provide any necessary background or literature review here.
+
+\section{Main Results}
+Present your main results, with theorems, proofs, etc.
+
+\begin{theorem}
+State your theorem here.
+\end{theorem}
+
+\begin{proof}
+Your proof goes here.
+\end{proof}
+
+\section{Conclusion}
+Summarize your findings and suggest future research directions.
+
+% References
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+

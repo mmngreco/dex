@@ -42,8 +42,8 @@ xetex
 ## Building
 
 ```sh
-git clone repo
-cd repo
+git clone https://github.com/mmngreco/dex
+cd dex
 make build
 ```
 
@@ -58,7 +58,7 @@ docker run \
     --net=none \
     --volume "$(pwd):/data" \
     --name $(basename $PWD) \
-    dex texliveonfly test.tex
+    mmngreco/dex texliveonfly test.tex
 ```
 
 
@@ -68,10 +68,10 @@ You can add this to your `.bashrc` or `.zshrc` for your convenience:
 
 ```bash
 # non-interactive (cli)
-alias dex='docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" dex'
+alias dex='docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" mmngreco/dex'
 
 # interactive
-alias dexi='docker run --rm -t -i --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" dex'
+alias dexi='docker run --rm -t -i --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" mmngreco/dex'
 
 # binary alias
 alias dexliveonfly='dex texliveonfly'
@@ -106,11 +106,11 @@ Here are some examples:
 
 ```bash
 echo '#!/usr/bin/env bash' > ~/.local/bin/dex
-echo 'docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" dex' >> ~/.local/bin/dex
+echo 'docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" mmngreco/dex' >> ~/.local/bin/dex
 sudo chmod +x ~/.local/bin/dex
 
 echo '#!/usr/bin/env bash' > ~/.local/bin/dexi
-echo 'docker run --rm -t -i --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" dex' > ~/.local/bin/dexi
+echo 'docker run --rm -t -i --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" mmngreco/dex' > ~/.local/bin/dexi
 sudo chmod +x ~/.local/bin/dexi
 
 # optionally

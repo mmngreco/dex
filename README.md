@@ -1,6 +1,9 @@
 # Docker Latex Image (aka dex)
 
 
+[![Static Badge](https://img.shields.io/badge/docker-hub-blue?style=flat-square)](https://hub.docker.com/r/mmngreco/dex)
+
+
 This Docker image is based on the `pandoc/latex` image, which is essentially an
 Alpine Linux machine with a TeX Live installation (including pandoc). I have
 extended it with the `texliveonfly` package.
@@ -137,5 +140,4 @@ dexpdf --help
 ~/.local/bin/dexpdf --help
 /home/user/.local/bin/dexpdf --help
 ```
-
 

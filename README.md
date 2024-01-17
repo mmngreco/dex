@@ -27,7 +27,7 @@ xetex
 ```
 
 
-> [!NOTES]
+> [!NOTE]
 >
 > texliveonfly will install missed dependencies if they are missed in the
 > container based on the `.tex` file.

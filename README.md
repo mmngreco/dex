@@ -109,11 +109,11 @@ Here are some examples:
 
 ```bash
 echo '#!/usr/bin/env bash' > ~/.local/bin/dex
-echo 'docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" mmngreco/dex' >> ~/.local/bin/dex
+echo 'docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$PWD:$PWD" -w $PWD mmngreco/dex $@' >> ~/.local/bin/dex
 sudo chmod +x ~/.local/bin/dex
 
 echo '#!/usr/bin/env bash' > ~/.local/bin/dexi
-echo 'docker run --rm -t -i --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" mmngreco/dex' > ~/.local/bin/dexi
+echo 'docker run --rm -t -i --user="$(id -u):$(id -g)" --net=none -v "$PWD:$PWD" -w $PWD mmngreco/dex $@' > ~/.local/bin/dexi
 sudo chmod +x ~/.local/bin/dexi
 
 # optionally
@@ -140,4 +140,58 @@ dexpdf --help
 ~/.local/bin/dexpdf --help
 /home/user/.local/bin/dexpdf --help
 ```
+## LivePreview
 
+This feature only works using the mentioned executables above.
+
+### Vim/Neovim
+
+```vimscript
+augroup Latex
+  au!
+  au BufWritePost *.tex silent !dex pdflatex % && firefox %:t:r.pdf
+augroup end
+```
+
+
+### VSCode
+
+Install [LaTeX Workshop][vs-ext] extension.
+
+Add the following into your `settings.json`
+
+```json
+    "latex-workshop.latex.outDir": "%DIR%",
+    "latex-workshop.latex.recipes": [
+        {
+          "name": "dex",
+          "tools": [
+            "pdflatex"
+          ]
+        },
+      ],
+    "latex-workshop.latex.tools": [
+        {
+          "name": "pdflatex",
+          "command": "dex",
+          "args": [
+            "pdflatex",
+            "%DOC%",
+            "-output-directory=%OUTDIR%"
+
+          ],
+          "env": {"PWD": "%OUTDIR%"}
+        },
+        {
+          "name": "bibtex",
+          "command": "dex",
+          "args": [
+            "bibtex",
+            "%DOCFILE%"
+          ],
+          "env": {"PWD": "%OUTDIR%"}
+        }
+    ],
+```
+
+[vs-ext]: https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop

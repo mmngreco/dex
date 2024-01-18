@@ -71,10 +71,10 @@ You can add this to your `.bashrc` or `.zshrc` for your convenience:
 
 ```bash
 # non-interactive (cli)
-alias dex='docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" mmngreco/dex'
+alias dex='docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$PWD:$PWD" -w $PWD mmngreco/dex'
 
 # interactive
-alias dexi='docker run --rm -t -i --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/data" mmngreco/dex'
+alias dexi='docker run --rm -t -i --user="$(id -u):$(id -g)" --net=none -v "$PWD:$PWD" -w $PWD mmngreco/dex'
 
 # binary alias
 alias dexliveonfly='dex texliveonfly'

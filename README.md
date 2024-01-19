@@ -142,7 +142,8 @@ dexpdf --help
 ```
 ## LivePreview
 
-This feature only works using the mentioned executables above.
+> [!WARNING]
+> This feature only works using the mentioned executables above.
 
 ### Vim/Neovim
 

@@ -78,7 +78,8 @@ alias dexi='docker run --rm -t -i --user="$(id -u):$(id -g)" --net=none -v "$PWD
 
 # binary alias
 alias dexliveonfly='dex texliveonfly'
-alias dexpdf='dex pdflatex'
+alias dexpdf='dex pdftex' # for plain tex files
+alias dexpdflatex='dex pdflatex' # for tex files using \documentclass
 ```
 
 > [!NOTE]
